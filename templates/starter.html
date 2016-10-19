@@ -1,9 +1,13 @@
 <html>
 <body>
+  {% extends "index.html" %}
+  {% block content %}
+<h2>Hello World! Come cook with us.</h2>
   <ul>
     {% for recipe in recipes %}
       <li>{{ recipe  }}</li>
     {% endfor %}
   </ul>
+  {% endblock %}
 </body>
 </html>
