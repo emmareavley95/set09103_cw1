@@ -1,19 +1,9 @@
-from flask import Flask, render_template, request
-#from django.view.generic import RedirectView
-
+from flask import Flask, render_template
 app = Flask(__name__)
-
-#urlpatterns = patterns('',
- #   (r'^starter/$', RedirectView.as_view(url='/templates/starter.html'))
-#)
 
 @app.route('/')
 def root():
   return render_template('index.html'), 200
-
-def RedirectView(request):
- # recipes = ['Mozzarella&Tomato salad', 'Chicken&Avocado wrap', 'French onion soup', 'Chicken Caesar salad']
-  return render_template('starter.html')
 
 @app.route('/starter/')
 def starter():
