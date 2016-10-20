@@ -8,6 +8,7 @@ def root():
 
 @app.route('/starter/')
 def starter():
+  starter = ['Chicken ceasar salad', 'French onion soup', 'Halloumi wrap', 'Guacamole']
   return render_template('starter.html')
 
 @app.route('/meal/')
