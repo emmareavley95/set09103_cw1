@@ -9,7 +9,7 @@ def root():
 @app.route('/starter/')
 def starter():
   starter = ['Chicken ceasar salad', 'French onion soup', 'Halloumi wrap', 'Guacamole']
-  return render_template('starter.html')
+  return render_template('starter.html', starter=starter)
 
 @app.route('/meal/')
 def meal():
