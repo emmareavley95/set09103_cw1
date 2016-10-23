@@ -3,6 +3,8 @@
   <title>My Cookbook</title>
   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
   rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/style.css') }}"
+  rel="stylesheet" />
 </head>
 
 <body>
@@ -18,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">MyCookBook</a>
+        <a class="navbar-brand" href="/">MyCookBook</a>
       </div>
 
       <div id="navbar" class="collapse navbar-collapse">
@@ -33,21 +35,16 @@
     </div>
   </nav>
   {% block content %}
-  <div class="container">
-    <h2>Welcome</h2>
-    <p>Welcome to the new interactive online cookbook. Check our recipes!</p>
-    <ul>
-      {% for recipe in recipes %}
-        <li> {{ recipe }} </li>
-      {% endfor %}
-    </ul>
+  <div class="welcome">
+    <h1>Welcome to Emma Reavley CookBook</h1>
+    <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign
+    up today</a></p>
   </div>
  {% endblock %}
-  <style>
-    body {
-      Padding-top: 50px; 
-    }
-  </style>
+ 
+ <footer class="footer">
+    <p>&copy; 2016 - made with Love by E.Reavley || Edinburgh Napier University</p>
+ </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src={{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
