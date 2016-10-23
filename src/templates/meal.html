@@ -2,7 +2,14 @@
 <body>
   {% extends "index.html" %}
   {% block content %}
+  <div class="mealpage">
     <h2>Meal time!</h2>
+    <ul>
+    {% for food in meal %}
+      <li><h4>{{ food }}</h4></li>
+    {% endfor %}
+    </ul>
+  </div>
   {% endblock %}
 
 </body>

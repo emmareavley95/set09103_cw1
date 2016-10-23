@@ -1,4 +1,12 @@
+
 {% extends "index.html" %}
 {% block content %}
+<div class="container">
   <h2>Dessert time</h2>
+  <ul>
+    {% for sweet in dessert %}
+      <li><h4>{{ sweet }}</h4></li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

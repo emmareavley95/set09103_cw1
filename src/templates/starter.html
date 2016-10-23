@@ -2,11 +2,12 @@
 <body>
   {% extends "index.html" %}
   {% block content %}
-  <div class="container">
+  <div class="starterpage">
     <h2>Hello World! Come cook with us.</h2>
     <ul>
-      {% for salad in starter %}
-        <li><h4>{{ salad }}</h4></li>
+      {% for salad,img in starter %}
+          <li><h4>{{ salad }}</h4>{{ img }}</li>
+        
       {% endfor %}
     </ul>
   </div>
