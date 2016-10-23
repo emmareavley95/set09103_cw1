@@ -9,6 +9,10 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.welcome {
+  background-image: url("../img/welcome_bg.jpg");
+}
+
 .welcome, .starterpage {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
