@@ -1,10 +1,22 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/home/')
 def root():
   recipes = ['Starter', 'Meal', 'Dessert']
   return render_template('index.html', recipes=recipes), 200
+
+@app.route('/', methods=['GET','POST'])
+def signup():
+  if request.method == 'POST':
+    print request.form
+    name = request.form['name']
+    email = request.form['email']
+    password = request.form['password']
+    submit = request.form['submit']
+    return redirect(url_for('/home/'))
+  else:
+    return render_template('signup.html')
 
 @app.route('/test-image/')
 def test():
@@ -15,10 +27,10 @@ def test():
 
 @app.route('/starter/')
 def starter():
-  starter = [dict(salad='Chicken caesar salad', img=url_for('static', filename='img/pasta.jpg')), 
-            dict(salad='French onion soup', img=url_for('static', filename='img/pasta.jpg')), 
-            dict(salad='Halloumi wrap', img=url_for('static', filename='img/pasta.jpg')), 
-            dict(salad='Guacamole', img=url_for('static', filename='img/pasta.jpg'))
+  starter = [dict(salad='Chicken caesar salad', img=url_for('static', filename='img/pasta.jpg')),
+             dict(salad='French onion soup', img=url_for('static', filename='img/pasta.jpg')),
+             dict(salad='Halloumi wrap', img=url_for('static', filename='img/pasta.jpg')), 
+             dict(salad='Guacamole', img=url_for('static', filename='img/pasta.jpg'))
   ]
   return render_template('starter.html', starter=starter)
 
