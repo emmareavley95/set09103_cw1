@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
 @app.route('/home/')
@@ -13,8 +13,7 @@ def signup():
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
-    submit = request.form['submit']
-    return redirect(url_for('/home/'))
+    return redirect(url_for('/home/'),form=form)
   else:
     return render_template('signup.html')
 
