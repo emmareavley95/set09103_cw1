@@ -5,8 +5,11 @@
   <div class="mealpage">
     <h2>Meal time!</h2>
     <ul>
-    {% for food in meal %}
-      <li><h4>{{ food }}</h4></li>
+    {% for food, imgfood in meal.iteritems(): %}
+      <li>
+        <h4>{{ food }}</h4>
+        <img src="{{ url_for('static', filename=imgfood) }}" />
+      </li>
     {% endfor %}
     </ul>
   </div>

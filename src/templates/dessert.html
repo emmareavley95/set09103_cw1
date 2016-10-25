@@ -4,8 +4,11 @@
 <div class="container">
   <h2>Dessert time</h2>
   <ul>
-    {% for sweet in dessert %}
-      <li><h4>{{ sweet }}</h4></li>
+    {% for sweet, imgsweet in dessert.iteritems(): %}
+      <li>
+        <h4>{{ sweet }}</h4>
+        <img src="{{ url_for('static', filename=imgsweet) }}" />
+      </li>
     {% endfor %}
   </ul>
 </div>

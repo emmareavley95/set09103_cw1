@@ -2,11 +2,18 @@
 <body>
   {% extends "index.html" %}
   {% block content %}
-  <div class="starterpage">
-    <h2>Hello World! Come cook with us.</h2>
+  <header>
+    <div class="container">
+      <div class="intro-text">
+        <h1 class="intro-lead-in">Starter</h1>
+      </div>
+    </div>
+  </header>
+<section class="starterpage">
+  <div class="col-md-4 col-sm-6 text-center">
     <ul>
       {% for salad, imgsalad in starter.iteritems(): %}
-          <li>
+          <li class="portfolio-caption">
             <h4>{{ salad }}</h4>
             <img src="{{ url_for('static', filename=imgsalad) }}" />
           </li>
@@ -14,6 +21,7 @@
       {% endfor %}
     </ul>
   </div>
+</section>
   {% endblock %}
 </body>
 </html>
