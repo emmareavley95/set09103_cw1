@@ -1,19 +1,19 @@
 from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
-@app.route('/home/')
+@app.route('/')
 def root():
   recipes = ['Starter', 'Meal', 'Dessert']
   return render_template('index.html', recipes=recipes), 200
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/signup/', methods=['GET','POST'])
 def signup():
   if request.method == 'POST':
     print request.form
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
-    return redirect(url_for('/home/'),form=form)
+    return render_template('index.html', name=name, email=email)
   else:
     return render_template('signup.html')
 
