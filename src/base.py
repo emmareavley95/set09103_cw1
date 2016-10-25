@@ -3,8 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-  recipes = ['Starter', 'Meal', 'Dessert']
-  return render_template('index.html', recipes=recipes), 200
+    return render_template('index.html'), 200
 
 @app.route('/signup/', methods=['GET','POST'])
 def signup():
@@ -17,30 +16,31 @@ def signup():
   else:
     return render_template('signup.html')
 
-@app.route('/test-image/')
-def test():
-  start = '<h2>Pasta</h2><img src="'
-  url = url_for('static', filename='img/caesar.jpg')
-  end = '">'
-  return  start+url+end, 200
-
 @app.route('/starter/')
 def starter():
-  starter = {'Chicken caesar salad': 'img/caesar.jpg',
-             'French onion soup': 'img/caesar.jpg',
-             'Halloumi wrap': 'img/caesar.jpg', 
-             'Guacamole': 'img/caesar.jpg'
+  starter = {'Chicken caesar salad': 'img/salad.png',
+             'French onion soup': 'img/salad.png',
+             'Halloumi wrap': 'img/salad.png', 
+             'Guacamole': 'img/salad.png'
   }
   return render_template('starter.html', starter=starter)
 
 @app.route('/meal/')
 def meal():
-  meal = ['Quiche lorraine', 'Fish casserole', 'Sweet potato delight', 'Buckwheat pancakes']
+  meal = {'Quiche lorraine': 'img/caesar.jpg', 
+          'Fish casserole': 'img/caesar.jpg', 
+          'Sweet potato delight': 'img/caesar.jpg', 
+          'Buckwheat pancakes': 'img/caesar.jpg'
+  }
   return render_template('meal.html', meal=meal)
 
 @app.route('/dessert/')
 def dessert():
-  dessert = ['Crepes', 'American pancakes', 'Yogurt cake', 'Sunday caramel']
+  dessert = { 'Crepes': 'img/caesar.jpg', 
+              'American pancakes': 'img/caesar.jpg', 
+              'Yogurt cake': 'img/caesar.jpg', 
+              'Sunday caramel': 'img/caesar.jpg'
+  }
   return render_template('dessert.html', dessert=dessert)
 
 @app.errorhandler(404)
