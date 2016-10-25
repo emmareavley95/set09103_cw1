@@ -20,17 +20,17 @@ def signup():
 @app.route('/test-image/')
 def test():
   start = '<h2>Pasta</h2><img src="'
-  url = url_for('static', filename='img/pasta.jpg')
+  url = url_for('static', filename='img/caesar.jpg')
   end = '">'
   return  start+url+end, 200
 
 @app.route('/starter/')
 def starter():
-  starter = [dict(salad='Chicken caesar salad', img=url_for('static', filename='img/pasta.jpg')),
-             dict(salad='French onion soup', img=url_for('static', filename='img/pasta.jpg')),
-             dict(salad='Halloumi wrap', img=url_for('static', filename='img/pasta.jpg')), 
-             dict(salad='Guacamole', img=url_for('static', filename='img/pasta.jpg'))
-  ]
+  starter = {'Chicken caesar salad': 'img/caesar.jpg',
+             'French onion soup': 'img/caesar.jpg',
+             'Halloumi wrap': 'img/caesar.jpg', 
+             'Guacamole': 'img/caesar.jpg'
+  }
   return render_template('starter.html', starter=starter)
 
 @app.route('/meal/')
