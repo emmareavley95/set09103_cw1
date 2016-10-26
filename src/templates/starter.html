@@ -2,26 +2,44 @@
 <body>
   {% extends "index.html" %}
   {% block content %}
-  <header>
+  <header class="starterpage">
     <div class="container">
-      <div class="intro-text">
-        <h1 class="intro-lead-in">Starter</h1>
+      <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="intro-text">
+          <h1 class="intro-lead-in">Starter</h1>
+        </div>
+      </div>
       </div>
     </div>
   </header>
-<section class="starterpage">
-  <div class="col-md-4 col-sm-6 text-center">
-    <ul>
+<section>
+  <div class="col-lg-12 text-center">
+    <ul id="item-list" class="col-xs-6 col-md-4">
       {% for salad, imgsalad in starter.iteritems(): %}
           <li class="portfolio-caption">
             <h4>{{ salad }}</h4>
-            <img src="{{ url_for('static', filename=imgsalad) }}" />
+            <img src="{{ url_for('static', filename=imgsalad) }}"
+            class="img-responsive" />
           </li>
         
       {% endfor %}
     </ul>
   </div>
 </section>
+</div>
+<style>
+.starterpage {
+  background: url(../static/img/header/starter_bg.png);
+  }
+
+  #item-list {
+    list-style: none;
+    }
+  #item-list li {
+    display: inline-block;
+  }
+</style>
   {% endblock %}
 </body>
 </html>
