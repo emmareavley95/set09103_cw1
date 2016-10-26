@@ -1,8 +1,8 @@
 <html>
 <head>
   <title>My Cookbook</title>
-  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
-  rel="stylesheet" />
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
   <link href="{{ url_for('static', filename='css/style.css') }}"
   rel="stylesheet" />
   <link href="{{ url_for('static', filename='css/agency.min.css') }}"
@@ -40,11 +40,11 @@
     </div>
   </nav>
   {% block content %}
-  <header>
-    <div class="container">
+  <header class="welcome">
+   <div class="container">
       <div class="intro-text">
-        <h1 class="intro-lead-in">Welcome to Emma Reavley CookBook</h1>
-        {{ name }}
+        <h1 class="intro-lead-in">Dear {{ name }}, welcome to my CookBook</h1>
+        <h4 class="text-muted">You can now start the adventure...</h4>
         <p><a class="btn btn-lg btn-success" href="signup" role="button">Sign up today</a></p>
       </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2>Starter</h2>      
+          <h2>Choose the category of recipes that you would like:</h2>      
         </div>
 
         <div class="col-md-4 col-sm-6 text-center">
@@ -84,6 +84,7 @@
           </a>
           <div class="portfolio-caption">
             <h4>Meals</h4>
+            <p class="text-muted">Try one of our delicious meal!</p>
           </div>
         </div>
 
@@ -99,25 +100,50 @@
           </a>
           <div class="portfolio-caption">
             <h4>Desserts</h4>
+            <p class="text-muted">Finish your meal with a little sweet pleasure!</p>
           </div>
         </div>
     </div>
   </section>
-  
-  <section id="meal" class="bg-light-gray">
-    <div class="container">
 
+  <section id="upload" class="bg-light-gray">
+    <div class="container">
+      <div class="row">
+      <div class="clo-lg-12 text-center">
+        <h4>If you would like to contribute to our collection, please add your
+        recipe here and we will have a look for a better collection.</h4>
+      </div>
+        <div class="col-md-4 col-sm-6">
+
+        <form action="" method="post" name="uploadrecipes">
+          <label for="name" class="sr-only"></label>
+          <input type="name" name="name" id="name" class="form-control" placeholder="Name">
+      
+          <label for="email" class="sr-only">Email address</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+      
+          <input type="file" name="datafile" id="datafile" class="form-control" />
+          <input type="submit" name="submit" id="submit" class="btn btn-lg btn-primary btn-block" />
+        </form>
+
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="dessert">
-    <div class="container">
+  <style>
+    .welcome {
+      background-image: url(../static/img/welcome_bg.png);
+    }
 
-    </div>
-  </section>
- {% endblock %}
+      #item-list {
+        list-style-type: none;  
+      }
+  </style>
  
- <footer class="footer">
+ {% endblock %}
+
+ <footer class="footer col-lg-12">
     <p>&copy; 2016 - made by E.Reavley || Edinburgh Napier University</p>
  </footer>
 
