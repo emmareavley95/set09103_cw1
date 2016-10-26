@@ -1,9 +1,17 @@
 from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def root():
     return render_template('index.html'), 200
+
+def upload():
+    if request.method == 'POST':
+      f = request.files['datafile'],
+      f.save('static/uploads/recipe.png')
+      return "File uploaded"
+    else:
+      return render_template('index.html'), 200
 
 @app.route('/signup/', methods=['GET','POST'])
 def signup():
@@ -18,28 +26,28 @@ def signup():
 
 @app.route('/starter/')
 def starter():
-  starter = {'Chicken caesar salad': 'img/salad.png',
-             'French onion soup': 'img/salad.png',
-             'Halloumi wrap': 'img/salad.png', 
-             'Guacamole': 'img/salad.png'
+  starter = {'Chicken caesar salad': 'img/starter/caesar.png',
+             'Halloumi wrap': 'img/starter/halloumi.png',
+             'French onion soup': 'img/starter/frenchonionsoup.png',
+             'Guacamole': 'img/starter/guacamole.png'
   }
   return render_template('starter.html', starter=starter)
 
 @app.route('/meal/')
 def meal():
-  meal = {'Quiche lorraine': 'img/caesar.jpg', 
-          'Fish casserole': 'img/caesar.jpg', 
-          'Sweet potato delight': 'img/caesar.jpg', 
-          'Buckwheat pancakes': 'img/caesar.jpg'
+  meal = {'Quiche lorraine': 'img/meal/quiche.png', 
+          'Fish casserole': 'img/meal/fishcasserole.png', 
+          'Sweet potato delight': 'img/meal/sweetpotato.png', 
+          'Buckwheat pancakes': 'img/meal/galettes.png'
   }
   return render_template('meal.html', meal=meal)
 
 @app.route('/dessert/')
 def dessert():
-  dessert = { 'Crepes': 'img/caesar.jpg', 
-              'American pancakes': 'img/caesar.jpg', 
-              'Yogurt cake': 'img/caesar.jpg', 
-              'Sunday caramel': 'img/caesar.jpg'
+  dessert = { 'Crepes': 'img/dessert/crepes.png', 
+              'American pancakes': 'img/dessert/pancakes.png', 
+              'Yogurt cake': 'img/dessert/cake.png', 
+              'Sunday caramel': 'img/dessert/sunday.png'
   }
   return render_template('dessert.html', dessert=dessert)
 
