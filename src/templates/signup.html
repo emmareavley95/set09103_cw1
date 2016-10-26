@@ -2,8 +2,15 @@
 <body>
   {% extends "index.html" %}
   {% block content %}
-  <div class="container">
-    <h1>My cookbook</h1>
+  <header class="signuppage">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="intro-text">
+            <h1 class="intro-lead-in">Welcome to Emma Reavley CookBook</h1>
+            <p>Please sign up to enter.</p>
+            <p><a class="btn btn-lg btn-success" href="#signinform" role="button">Sign up today</a></p>  
+  <section id="signin-form" class="col-lg-12 text-center">
     <form action="{{ url_for('signup') }}" method="post" name="signin-form">
       <label for="name" class="sr-only">Name</label>
       <input type="name" name="name" id="name" class="form-control" placeholder="Name" required autofocus>
@@ -16,7 +23,19 @@
 
       <button type="submit" name="submit" id="Submit" class="btn btn-lg btn-primary btn-block">Submit</button>
     </form>
-  </div>
+  <section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <style>
+    .signuppage {
+      background: url(../static/img/welcome_bg.png);
+    }
+  </style>
+
   {% endblock %}
 </body>
 </html>
