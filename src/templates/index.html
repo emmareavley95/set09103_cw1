@@ -31,7 +31,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="hidden"><a href="#page-top"></a></li>
 
-          <li class="page-scroll"><a href="/">Home</a></li>
+          <li class="page-scroll"><a href="/home">Home</a></li>
           <li><a class="page-scroll" href="/starter">Starter</a></li>
           <li><a class="page-scroll" href="/meal">Meal</a></li>
           <li><a class="page-scroll" href="/dessert">Dessert</a></li>
@@ -64,7 +64,7 @@
                 <i class="fa fa-plus fa-3x"></i>
                 </div>
             </div>
-            <img src="{{ url_for('static', filename='img/salad.png') }}" class="img-responsive" alt="">
+            <img src="{{ url_for('static', filename='img/starter/caesar.png') }}" class="img-responsive" alt="">
           </a>
           <div class="portfolio-caption">
             <h4>Starters</h4>
@@ -79,7 +79,7 @@
               <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img src="{{ url_for('static', filename='img/salad.png') }}"
+            <img src="{{ url_for('static', filename='img/meal/galettes.png') }}"
             class="img-responsive" alt="">
           </a>
           <div class="portfolio-caption">
@@ -95,7 +95,7 @@
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-            <img src="{{ url_for('static', filename='img/salad.png') }}" class="img-responsive"
+            <img src="{{ url_for('static', filename='img/dessert/crepes.png') }}" class="img-responsive"
             alt="">
           </a>
           <div class="portfolio-caption">
@@ -123,6 +123,11 @@
           <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
       
           <input type="file" name="datafile" id="datafile" class="form-control" />
+
+          <label for="text" class="sr-only"></label>
+          <input type="text" name="text" id="text" class="form-control"
+          placeholder="Please add details, title and description about your
+          recipe">
           <input type="submit" name="submit" id="submit" class="btn btn-lg btn-primary btn-block" />
         </form>
 

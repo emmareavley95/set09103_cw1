@@ -1,8 +1,8 @@
 from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def root():
+@app.route('/home/', methods=['GET', 'POST'])
+def home():
     return render_template('index.html'), 200
 
 def upload():
@@ -13,8 +13,8 @@ def upload():
     else:
       return render_template('index.html'), 200
 
-@app.route('/signup/', methods=['GET','POST'])
-def signup():
+@app.route('/', methods=['GET','POST'])
+def root():
   if request.method == 'POST':
     print request.form
     name = request.form['name']
