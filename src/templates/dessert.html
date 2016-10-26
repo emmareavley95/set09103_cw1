@@ -1,15 +1,37 @@
 
 {% extends "index.html" %}
 {% block content %}
-<div class="container">
-  <h2>Dessert time</h2>
-  <ul>
+<header class="dessertpage">
+  <div class="container">
+    <div class="row">
+      <div class="intro-text">
+        <h2 class="intro-lead-in">Dessert time</h2>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+<div class="col-lg-12 text-center">
+  <ul id="item-list" class="col-xs-6 col-md-4">
     {% for sweet, imgsweet in dessert.iteritems(): %}
-      <li>
+      <li class="portfolio-caption">
         <h4>{{ sweet }}</h4>
-        <img src="{{ url_for('static', filename=imgsweet) }}" />
+        <img src="{{ url_for('static', filename=imgsweet) }}"
+        class="img-responsive" />
       </li>
     {% endfor %}
   </ul>
 </div>
+</section>
+<style>
+.dessertpage {
+  background: url(../static/img/header/dessert_bg.png);
+}
+  #item-list {
+    list-style: none;
+  }
+  #item-list li {
+    display: inline-block;
+  }
+</style>
 {% endblock %}

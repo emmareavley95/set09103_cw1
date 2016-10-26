@@ -1,0 +1,10 @@
+body {
+
+}
+  .welcome {
+    background-image: url(../img/welcome_bg.png;
+  }
+  #item-list {
+      list-style-type: none;
+      text-align: center;
+  }
